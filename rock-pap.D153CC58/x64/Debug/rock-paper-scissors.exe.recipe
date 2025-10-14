@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\john\GitHub\CSC-222\x64\Debug\rock-paper-scissors.exe</FullPath>
+      <FullPath>C:\Users\john\source\repos\CSC-222\x64\Debug\rock-paper-scissors.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

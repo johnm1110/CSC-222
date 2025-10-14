@@ -5,100 +5,121 @@
 #include <random>
 using namespace std;
 
-int promptHuman ();
-int promptComputer ();
-string winner (int, int);
+string promptHuman ();
+string promptComputer ();
+string winner (string, string);
 void score (int &, int &, string);
+string tournamentWinner (int, int);
 
 int main ()
 {
-    int scoreComputer, scoreHuman, choiceComputer, choiceHuman = 0;
-    string roundWinner;
+	int scoreComputer = 0, scoreHuman = 0;
+    string roundWinner, choiceComputer, choiceHuman, declaredWinner;
 
-
-
-    while (choiceHuman != 4)
+	choiceHuman = promptHuman();
+	while (choiceHuman != "quit")
     {
-		choiceHuman = promptHuman ();
 		choiceComputer = promptComputer ();
 		roundWinner = winner (choiceHuman, choiceComputer);
 		score (scoreComputer, scoreHuman, roundWinner);
-
+		
+		// determine the winner of the round
 		if (roundWinner == "computer")
-			cout << choiceComputer << " beats " << choiceHuman << " , the computer wins.";
+			cout << choiceComputer << " beats " << choiceHuman << " , the computer wins.\n";
 		else if (roundWinner == "human")
-			cout << choiceHuman << " beats " << choiceComputer << " , you win.";
+			cout << choiceHuman << " beats " << choiceComputer << " , you win.\n";
 		else
-			cout << "You both chose " << choiceHuman << " , draw!";
+			cout << "You both chose " << choiceHuman << " , draw!\n";
 
-		cout << "Current score: Computer " << scoreComputer  << ", you " << scoreHuman;
+		cout << "Current score: Computer " << scoreComputer  << ", you " << scoreHuman << endl;
+		choiceHuman = promptHuman();
     }
+
+	// declare a final winner
+	declaredWinner = tournamentWinner(scoreComputer, scoreHuman);
+	cout << "Final score: Computer " << scoreComputer << ", you " << scoreHuman << endl;
+	if (declaredWinner == "draw")
+		cout << "The tournament is a draw!";
+	else
+		cout << "The tournament winner is " << declaredWinner << "!";
+
 	return 0;
 }
 
-int promptHuman ()
+string promptHuman ()
 {
 	string inputHuman;
-	int inputHumanNum = 4;
-	while (inputHumanNum < 1 || inputHumanNum > 4)
+
+	// get the players input
+	cout << "Please choose rock, paper, scissors, or quit: ";
+	cin >> inputHuman;
+	
+	// check that the input is valid, ask again if it is not
+	while (inputHuman != "rock" && inputHuman != "paper" && inputHuman != "scissors" && inputHuman != "quit")
 	{
-		cout << "Please choose rock, paper, scissors, or quit";
+		cout << "That is not a correct entry, please try again: ";
 		cin >> inputHuman;
-		if (inputHuman == "rock")
-			inputHumanNum = 1;
-		else if (inputHuman == "paper")
-			inputHumanNum = 2;
-		else if (inputHuman == "scissors")
-			inputHumanNum = 3;
-		else if (inputHuman == "quit")
-			inputHumanNum = 4;
-		else
-			cout << "That is not a correct entry, please try again";
 	}
-	return inputHumanNum;
+	return inputHuman;
 }
 
-int promptComputer ()
+string promptComputer ()
 {
 
 	const int MIN = 1; // minimum value for the computer's choice
 	const int MAX = 3; // maximum value for the computer's choice
+	int inputComputerNum;
+	string inputComputer;
 
-	random_device engine;
-	uniform_int_distribution<int>computerInput(MIN, MAX);
+	random_device engine;  // randon number engine
+	uniform_int_distribution<int>computerRand(MIN, MAX);  // distribution object
 
-	return computerInput(engine);
+	inputComputerNum = computerRand(engine);
+	
+	// convert the number to a play
+	switch (inputComputerNum)
+	{
+		case 1: inputComputer = "rock";
+			break;
+		case 2: inputComputer = "paper";
+			break;
+		case 3: inputComputer = "scissors";
+			break;
+	}
+
+	return inputComputer;
 }
 
-string winner (int choiceHuman, int choiceComputer)
+string winner (string choiceHuman, string choiceComputer)
 {
 	string whoWins;
 	
-	if (choiceComputer == 1)
+	//compare the plays to determine who wins the round
+	if (choiceComputer == "rock")
 	{
-		if (choiceHuman == 1)
+		if (choiceHuman == "rock")
 			whoWins = "draw";
-		else if (choiceHuman == 2)
+		else if (choiceHuman == "paper")
 			whoWins = "human";
 		else 
 			whoWins = "computer";
 	}
 
-	if (choiceComputer == 2)
+	if (choiceComputer == "paper")
 	{
-		if (choiceHuman == 1)
+		if (choiceHuman == "rock")
 			whoWins = "computer";
-		else if (choiceHuman == 2)
+		else if (choiceHuman == "paper")
 			whoWins = "draw";
 		else 
 			whoWins = "human";
 	}
 
-	if (choiceComputer == 3)
+	if (choiceComputer == "scissors")
 	{
-		if (choiceHuman == 1)
+		if (choiceHuman == "rock")
 			whoWins = "human";
-		else if (choiceHuman == 2)
+		else if (choiceHuman == "paper")
 			whoWins = "computer";
 		else 
 			whoWins = "draw";
@@ -108,9 +129,24 @@ string winner (int choiceHuman, int choiceComputer)
 
 void score (int &scoreComputer, int &scoreHuman, string winner)
 {
+	// pass references for the scores becasue these need to stay updated
 	if (winner == "computer")
 		scoreComputer = scoreComputer + 1;
 	else if (winner == "human")
 		scoreHuman = scoreHuman + 1;
 	return;
+}
+
+string tournamentWinner(int scoreComputerFinal, int scoreHumanFinal)
+{
+	string calculatedWinner;
+
+	// compare scores to determine final winner
+	if (scoreComputerFinal > scoreHumanFinal)
+		calculatedWinner = "the computer";
+	else if (scoreComputerFinal < scoreHumanFinal)
+		calculatedWinner = "you";
+	else
+		calculatedWinner = "draw";
+	return calculatedWinner;
 }

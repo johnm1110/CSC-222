@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\john\\GitHub\\CSC-222\\",
+  "WorkspaceRootPath": "C:\\Users\\john\\source\\repos\\CSC-222\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D153CC58-1059-1E35-A1B4-07D5B5935B37}|rock-paper-scissors.vcxproj|C:\\Users\\john\\GitHub\\CSC-222\\rock-paper-scissors.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{D153CC58-1059-1E35-A1B4-07D5B5935B37}|rock-paper-scissors.vcxproj|C:\\Users\\john\\source\\repos\\CSC-222\\rock-paper-scissors.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D153CC58-1059-1E35-A1B4-07D5B5935B37}|rock-paper-scissors.vcxproj|solutionrelative:rock-paper-scissors.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "rock-paper-scissors.cpp",
-              "DocumentMoniker": "C:\\Users\\john\\GitHub\\CSC-222\\rock-paper-scissors.cpp",
+              "DocumentMoniker": "C:\\Users\\john\\source\\repos\\CSC-222\\rock-paper-scissors.cpp",
               "RelativeDocumentMoniker": "rock-paper-scissors.cpp",
-              "ToolTip": "C:\\Users\\john\\GitHub\\CSC-222\\rock-paper-scissors.cpp*",
-              "RelativeToolTip": "rock-paper-scissors.cpp*",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAEEAAAADAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\john\\source\\repos\\CSC-222\\rock-paper-scissors.cpp",
+              "RelativeToolTip": "rock-paper-scissors.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-14T15:35:10.824Z",
               "EditorCaption": ""
@@ -32,10 +32,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
