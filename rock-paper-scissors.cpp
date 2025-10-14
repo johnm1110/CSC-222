@@ -27,9 +27,9 @@ int main ()
 		else if (roundWinner == "human")
 			cout << choiceHuman << " beats " << choiceComputer << " , you win.";
 		else
-			cout << "You both chose " << choiceHuman << " , draw!"
+			cout << "You both chose " << choiceHuman << " , draw!";
 
-		cout << "Current score: Computer " << scoreComputer  << ", you << " scoreHuman."
+		cout << "Current score: Computer " << scoreComputer  << ", you << " scoreHuman.";
     }
 return 0
 }
