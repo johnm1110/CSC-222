@@ -63,11 +63,11 @@ int promptComputer ()
 
 	const int MIN = 1; // minimum value for the computer's choice
 	const int MAX = 3; // maximum value for the computer's choice
-	int computerInput;
 
 	random_device engine;
-	uniform_int_distribution<int> computerInput(MIN, MAX);
-	return computerInput;
+	uniform_int_distribution<int>computerInput(MIN, MAX);
+
+	return computerInput(engine);
 }
 
 string winner (int choiceHuman, int choiceComputer)
