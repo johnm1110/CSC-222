@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-rock-paper-scissors",
+      "appliesTo": "rock-paper-scissors.cpp",
+      "type": "launch"
+    }
+  ]
+}

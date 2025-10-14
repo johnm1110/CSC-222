@@ -20,11 +20,11 @@ int main ()
 		choiceHuman = promptHuman();
 		choiceComputer = promptComputer();
 		roundWinner = winner(choiceHuman, choiceComputer);
-		score(scoreComputer, scoreHuman, winner);
+		score(scoreComputer, scoreHuman, roundWinner);
 
-		if (winner == "computer")
+		if (roundWinner == "computer")
 			cout << choiceComputer << " beats " << choiceHuman << " , the computer wins.";
-		else if (winner == "human")
+		else if (roundWinner == "human")
 			cout << choiceHuman << " beats " << choiceComputer << " , you win.";
 		else
 			cout << "You both chose " << choiceHuman << " , draw!"
@@ -63,44 +63,40 @@ int promptComputer ()
 	return computerInput
 }
 
-string winner ()
+string winner (int choiceHuman, int choiceComputer)
 {
-	PARAMETER choiceHuman, choiceComputer
-		DECLARE string winner
-		SWITCH choiceComputer
-		if 1
-		SWITCH choiceHuman
-		else if 1
-		winner = draw
-		else if 2
-		winner = human
-		else if 3
-		winner = computer
-		else if 2
-		SWITCH choiceHuman
-		else if 1
-		winner = computer
-		else if 2
-		winner = draw
-		else if 3
-		winner = human
-		else if 3
-		SWITCH choiceHuman
-		else if 1
-		winner = human
-		else if 2
-		winner = computer
-		else if 3
-		winner = draw
-		return winner
+	string whoWins;
+	if (choiceComputer == 1)
+	{
+		if (choiceHuman == 1)
+			whoWins = draw;
+		else if (choiceHuman == 2)
+			whoWins = human;
+		else (choiceHuman == 3)
+			whoWins = computer;
+	else if (choiceComputer == 2)
+		if (choiceHuman == 1
+			whoWins = computer;
+		else if (choiceHuman == 2)
+			whoWins = draw;
+		else (choiceHuman == 3)
+			whoWins = human;
+	else (choiceComputer == 3)
+		else if (choiceHuman == 1)
+			whoWins = human;
+		else if (choiceHuman == 2)
+			whoWins = computer;
+		else (choiceHuman == 3)
+			whoWins = draw;
+	}
+	return whoWins;
 }
 
 void score (int &scoreComputer, int &scoreHuman, string winner)
 {
-	PARAMETER int& scoreComputer, & scoreHuman, winner
-		IF winner = computer
-		scoreComputer is scoreComputer + 1
-	else if winner = human
-	scoreHuman is scoreHuman + 1
-	return 0
+	if (winner == "computer")
+		scoreComputer is scoreComputer + 1;
+	else if (winner == "human")
+		scoreHuman is scoreHuman + 1;
+	return 0;
 }
