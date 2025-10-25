@@ -59,6 +59,10 @@ int main()
 	calculateAverage(students, studentCnt, testsCnt); // Calculate the average scores for each student
 	report(students, studentCnt); // Output the report of student names, average scores, and letter grades
 	
+	for (int i = 0; i < studentCnt; i++)
+	{
+		delete[] students[i].testScores; // Free the dynamically allocated memory for test scores
+	}
 	delete[] students; // Free the dynamically allocated memory
 
 	return 0;
