@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="grade-book.cpp">
+    <ClCompile Include="grade-book-structs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
